@@ -29,6 +29,9 @@ rec {
     # Text editor.
     pkgs.neovim
 
+    # Productivity tools:
+    pkgs.taskwarrior
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -77,6 +80,8 @@ rec {
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+    "${home.sessionVariables.XDG_CONFIG_HOME}/task/taskrc".source = dotfiles/task/taskrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

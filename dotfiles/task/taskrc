@@ -1,0 +1,22 @@
+# WARNING: Taskwarrior will segfault if $XDG_DATA_DIR is undefined.
+data.location=$XDG_DATA_HOME/task
+
+# Color theme
+#include dark-16.theme
+
+# Use `project.not:inbox` to separate inbox entries from actionable tasks.
+report.next.filter=status:pending -WAITING project.not:inbox
+
+# ------------------------------------------------------------------------------
+# GTD
+# ------------------------------------------------------------------------------
+
+# Capture step: New tasks are added to the `inbox` project by default
+default.project=inbox
+
+# Report to list inbox tasks
+report.inbox.description=List every inbox task
+report.inbox.columns=id,description.count,tags,entry.age
+report.inbox.labels=ID,Description,Tags,Age
+# report.inbox.sort=entry.age
+report.inbox.filter=status:pending project:inbox
