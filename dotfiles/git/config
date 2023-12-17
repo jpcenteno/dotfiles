@@ -1,0 +1,63 @@
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ NOTICE:                                                                ║
+# ║                                                                        ║
+# ║ If you are comming here just for the dotfiles and don't care about     ║
+# ║ Home manager, keep in mind that this is an "Extra config" file.        ║
+# ║                                                                        ║
+# ║ Some essentials like `user.name`, `user.email` and signing             ║ 
+# ║ configuration will be missing, because those are user-dependent and I  ║
+# ║ chose to manage them in a separate way. (FIXME I haven't decided yet). ║
+# ║                                                                        ║
+# ║ This file is intended to be shared with other people so they can copy  ║
+# ║ and paste whatever they find that might work for them.                 ║
+# ║                                                                        ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ General Config                                                         ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+
+[core]
+    excludesfile = "~/.config/git/gitignore"
+
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ Shortcuts                                                              ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+
+[init]
+    defaultBranch = main
+
+[alias]
+    s   = status
+    c   = commit
+    a   = add
+    ap  = add -p
+    b   = branch
+    co  = checkout
+    cob = checkout -b
+    df  = diff
+    dfc = diff --cached
+
+    pur = pull --rebase
+
+    initial-commit = "! git log &>/dev/null || git reset && git commit --allow-empty -m 'Initial commit'"
+    
+    current-branch = rev-parse --abbrev-ref HEAD
+    current-commit = rev-parse --verify HEAD
+
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ Use SSH instead of HTTP                                                ║
+# ║ src: https://マリウス.com/git-on-roids/                                ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+
+[url "ssh://git@codeberg.org/"]
+  insteadOf = https://codeberg.org/
+
+[url "ssh://git@git.sr.ht/"]
+  insteadOf = https://git.sr.ht/

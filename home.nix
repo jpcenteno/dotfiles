@@ -68,6 +68,13 @@ rec {
     '';
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Joaquín P. Centeno";
+    userEmail = "<>";
+    extraConfig = builtins.readFile dotfiles/git/config;
+  };
+
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
