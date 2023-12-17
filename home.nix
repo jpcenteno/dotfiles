@@ -53,6 +53,7 @@ rec {
     shellAliases = {
       g = "git";
       grep = "grep --color=auto";
+      t = "task";
 
       # Tool replacements.
       cat = "bat";
