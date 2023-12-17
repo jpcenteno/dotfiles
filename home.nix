@@ -50,8 +50,14 @@ rec {
     shellAliases = {
       g = "git";
       grep = "grep --color=auto";
+
+      # Tool replacements.
       cat = "bat";
       ls = "eza";
+
+      # `cd` into a new temporal directory and revoke permissions to any other
+      # user.
+      cdtemp = "cd \"$(mktemp -d)\" && chmod 700 .";
     };
     initExtra = ''
     # Use vi keybindings on the command prompt.
