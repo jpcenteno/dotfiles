@@ -97,7 +97,7 @@ rec {
   #  /etc/profiles/per-user/j/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # XDG  base directory variables.
+    # XDG base directory variables.
     # Reference: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
     XDG_DATA_HOME = "${home.homeDirectory}/.local/share";
     XDG_CONFIG_HOME = "${home.homeDirectory}/.config";
