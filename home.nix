@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-{
+rec {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "j";
@@ -43,6 +43,27 @@
     # '')
   ];
 
+  # Do this instead of adding `bash` to `home.packages` in order to Bash to
+  # inherit the variables from `home.sessionVariables`.
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      g = "git";
+      grep = "grep --color=auto";
+      cat = "bat";
+      ls = "eza";
+    };
+    initExtra = ''
+    # Use vi keybindings on the command prompt.
+    set -o vi
+    '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -70,6 +91,19 @@
   #  /etc/profiles/per-user/j/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    # XDG  base directory variables.
+    # Reference: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+    XDG_DATA_HOME = "${home.homeDirectory}/.local/share";
+    XDG_CONFIG_HOME = "${home.homeDirectory}/.config";
+    XDG_STATE_HOME = "${home.homeDirectory}/.local/state";
+    XDG_CACHE_HOME = "${home.homeDirectory }/.cache";
+    XDG_DATA_DIRS = "/usr/local/share/:/usr/share/";
+    XDG_CONFIG_DIRS = "/etc/xdg";
+
+    # Having `$ENV` undefined broke `mktemp` once on Arch linux. It seems that
+    # some Unix systems don't set this at a global level by default.
+    TMP = "/tmp";
+
     EDITOR = "nvim";
   };
 
