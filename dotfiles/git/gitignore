@@ -1,0 +1,10 @@
+# Mac OS
+.DS_Store
+
+# Direnv:
+.envrc
+.envfile
+
+# Text Editors and IDEs
+.idea/
+.vscode/

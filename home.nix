@@ -89,6 +89,8 @@ rec {
     # ".screenrc".source = dotfiles/screenrc;
 
     "${home.sessionVariables.XDG_CONFIG_HOME}/task/taskrc".source = dotfiles/task/taskrc;
+    "${home.sessionVariables.XDG_CONFIG_HOME}/git/gitignore".source =
+      dotfiles/git/gitignore;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
