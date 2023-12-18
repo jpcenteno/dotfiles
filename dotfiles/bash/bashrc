@@ -1,0 +1,24 @@
+# Disables ShellCheck error message about not including a shebang.
+# shellcheck disable=2148
+
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ Autocompletion and keybindings                                         ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+
+# Use vi keybindings on the command prompt.
+set -o vi
+
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ SSH Agent                                                              ║
+# ╚════════════════════════════════════════════════════════════════════════╝
+
+# Don't connect to the SSH Agent when acting as a SSH host, as this might break
+# SSH forwarding chains.
+# See: https://wiki.archlinux.org/title/SSH_keys#Forwarding_ssh-agent
+if [[ -z "${SSH_CONNECTION}" ]]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
+# ╔════════════════════════════════════════════════════════════════════════╗
+# ║ My `.bashrc` extra config finishes here.                               ║
+# ╚════════════════════════════════════════════════════════════════════════╝

@@ -63,10 +63,7 @@ rec {
       # user.
       cdtemp = "cd \"$(mktemp -d)\" && chmod 700 .";
     };
-    initExtra = ''
-    # Use vi keybindings on the command prompt.
-    set -o vi
-    '';
+    initExtra = builtins.readFile dotfiles/bash/bashrc;
   };
 
   programs.git = {
