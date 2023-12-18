@@ -4,6 +4,7 @@
 # Direnv:
 .envrc
 .envfile
+.direnv/
 
 # Text Editors and IDEs
 .idea/

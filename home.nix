@@ -66,6 +66,8 @@ rec {
     initExtra = builtins.readFile dotfiles/bash/bashrc;
   };
 
+  programs.direnv.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Joaquín P. Centeno";
