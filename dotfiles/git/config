@@ -49,10 +49,15 @@
 # ║ Commit signing                                                         ║
 # ╚════════════════════════════════════════════════════════════════════════╝
 
+[commit]
+    # Tells Git to sign every commit.
+    gpgsign = true
+
 [user]
     signingkey = ~/.ssh/id_ed25519.pub
 
 [gpg]
+    # Tells git to use a SSH key instead of GPG.
     format = ssh
 
 # ╔════════════════════════════════════════════════════════════════════════╗
