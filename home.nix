@@ -69,7 +69,7 @@ rec {
   programs.git = {
     enable = true;
     userName = "Joaquín P. Centeno";
-    userEmail = "<>";
+    userEmail = "jpcenteno@users.noreply.github.com";
     extraConfig = builtins.readFile dotfiles/git/config;
   };
 
