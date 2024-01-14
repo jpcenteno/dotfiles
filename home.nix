@@ -25,6 +25,7 @@ rec {
     pkgs.fzf
     pkgs.jq
     pkgs.ripgrep
+    pkgs.zenith
 
     # Text editor.
     pkgs.neovim
