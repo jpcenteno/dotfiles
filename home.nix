@@ -72,7 +72,7 @@ rec {
 
       # `cd` into a new temporal directory and revoke permissions to any other
       # user.
-      cdtemp = "cd \"$(mktemp -d)\" && chmod 700 .";
+      cdtmp = "cd \"$(mktemp -d)\" && chmod 700 .";
     };
     initExtra = builtins.readFile dotfiles/bash/bashrc;
   };
