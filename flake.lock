@@ -1,5 +1,44 @@
 {
   "nodes": {
+    "desktop-entry-launcher": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705296716,
+        "narHash": "sha256-qNCmh/1l76bx+LzCd/Mr3dKk5Xm4Owmn/djuGAnC5aM=",
+        "owner": "jpcenteno",
+        "repo": "desktop-entry-launcher",
+        "rev": "56ef63e6ebe1b5d7bc56f808317c756fd70dc301",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jpcenteno",
+        "repo": "desktop-entry-launcher",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,8 +77,24 @@
     },
     "root": {
       "inputs": {
+        "desktop-entry-launcher": "desktop-entry-launcher",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },
