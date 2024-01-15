@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  buildFromFlake = { repo, system }: (builtins.getFlake repo).packages."${system}".default;
+in
 rec {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -28,6 +31,10 @@ rec {
     pkgs.zenith
 
     (pkgs.nnn.override { withNerdIcons = true; })
+
+    (pkgs.callPackage buildFromFlake { 
+      repo = "git+https://github.com/jpcenteno/tmux-attacher?ref=fix-wrapper-ignoring-arguments&rev=88b5f6320b201bc69f56e1d8396ba0ce2e6a2a66";
+    })
 
     # Text editor.
     pkgs.neovim
@@ -61,6 +68,7 @@ rec {
       # Tool replacements.
       cat = "bat";
       ls = "eza";
+      tmux = "tmux-attacher";
 
       # `cd` into a new temporal directory and revoke permissions to any other
       # user.
