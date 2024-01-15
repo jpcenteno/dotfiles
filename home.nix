@@ -137,7 +137,7 @@ rec {
     XDG_CONFIG_HOME = "${home.homeDirectory}/.config";
     XDG_STATE_HOME = "${home.homeDirectory}/.local/state";
     XDG_CACHE_HOME = "${home.homeDirectory }/.cache";
-    XDG_DATA_DIRS = "/usr/local/share/:/usr/share/";
+    XDG_DATA_DIRS = "${home.homeDirectory}/.nix-profile/share:/usr/local/share/:/usr/share/";
     XDG_CONFIG_DIRS = "/etc/xdg";
 
     # Having `$ENV` undefined broke `mktemp` once on Arch linux. It seems that
