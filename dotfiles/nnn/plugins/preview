@@ -1,0 +1,5 @@
+#! /bin/sh
+
+_die() { echo "FATAL: " "$@"; exit 1; }
+
+_ensure_defined

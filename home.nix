@@ -27,6 +27,8 @@ rec {
     pkgs.ripgrep
     pkgs.zenith
 
+    (pkgs.nnn.override { withNerdIcons = true; })
+
     # Text editor.
     pkgs.neovim
 
@@ -92,6 +94,8 @@ rec {
     "${home.sessionVariables.XDG_CONFIG_HOME}/task/taskrc".source = dotfiles/task/taskrc;
     "${home.sessionVariables.XDG_CONFIG_HOME}/git/gitignore".source =
       dotfiles/git/gitignore;
+
+    "${home.sessionVariables.XDG_CONFIG_HOME}/nnn/config.sh".source = dotfiles/nnn/config.sh;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
