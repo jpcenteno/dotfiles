@@ -46,6 +46,7 @@ rec {
     pkgs.wob
     pkgs.brightnessctl
     pkgs.zathura
+    pkgs.xdg-utils # Provides xdg-mime and xdg-open.
 
     pkgs.brave
 
@@ -62,6 +63,17 @@ rec {
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  xdg = {
+    enable = true;
+
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop"];
+      };
+    };
+  };
 
   # Do this instead of adding `bash` to `home.packages` in order to Bash to
   # inherit the variables from `home.sessionVariables`.
