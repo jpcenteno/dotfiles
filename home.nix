@@ -48,8 +48,6 @@ rec {
     pkgs.zathura
     pkgs.xdg-utils # Provides xdg-mime and xdg-open.
 
-    pkgs.brave
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -73,6 +71,16 @@ rec {
         "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop"];
       };
     };
+  };
+
+  programs.brave = {
+    enable = true;
+    package = pkgs.brave;
+    # FIXME These flags are specific for wayland. Make this cross-platform.
+    commandLineArgs = [
+      "--enable-features=UeOzonePlatform"
+      "--ozone-platform=wayland"
+    ];
   };
 
   # Do this instead of adding `bash` to `home.packages` in order to Bash to
