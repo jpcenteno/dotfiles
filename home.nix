@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   buildFromFlake = { repo, system }: (builtins.getFlake repo).packages."${system}".default;
@@ -116,6 +116,29 @@ rec {
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
+  };
+
+  systemd.user.services.wlsunset = {
+    Unit = {
+      Description = "Day/night gamma adjustments for Wayland compositors.";
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = let
+        args = [
+          "-T 5500"
+          "-t 3500"
+          "-S 10:30"
+          "-s 18:30"
+          "-d 1800"
+        ];
+      in "${pkgs.wlsunset}/bin/wlsunset ${lib.concatStringsSep " " args}";
+    };
+
+    install = {
+      WantedBy = "graphical-session.target";
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
